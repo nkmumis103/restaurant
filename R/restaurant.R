@@ -6,9 +6,6 @@ restaurant = function(Id,OpenDate,City,P1,P2,P6,P17,P18,P20,P21,P23,P25,P28,P32,
 
   #input=data.frame(P1,P2,P6,P17,P18,P20,P21,P23,P25,P28,P32,P36,YearsSince1900)
 
-  int_data=as.character(c("P1","P6","P17","P18","P20","P21","P23","P25","P32","P36"))
-  num_data=as.character(c("P2","P28","YearsSince1900"))
-
   P1=as.integer(P1)
   P6=as.integer(P6)
   P17=as.integer(P17)
