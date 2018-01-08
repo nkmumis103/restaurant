@@ -23,7 +23,7 @@ restaurant = function(Id,OpenDate,City,P1,P2,P6,P17,P18,P20,P21,P23,P25,P28,P32,
 
   important_input = c(P1,P2,P6,P17,P18,P20,P21,P23,P25,P28,P32,P36,YearsSince1900)
 
-  newdata = important_input#exp(predict(res_model, important_input))
+  newdata = exp(predict(res_model, important_input))
 
 
   list(
