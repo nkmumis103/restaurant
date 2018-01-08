@@ -1,9 +1,8 @@
-restaurant = function(Id,OpenDate,City,CityGroup,Type,P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,
-                      P21,P22,P23,P24,P25,P26,P27,P28,P29,P30,P31,P32,P33,P34,P35,P36,P37){
+restaurant = function(Id,OpenDate,City,P1,P2,P6,P17,P18,P20,P21,P23,P25,P28,P32,P36){
 
-  CityGroup = as.factor(CityGroup)
-  OpenDate = mdy(OpenDate)
-  YearsSince1900 = as.numeric(OpenDate-mdy("01/01/1900"), units="days")/365
+  input$OpenDate=as.Date(input$OpenDate)
+  input$year=as.integer(format(input$OpenDate, "%Y"))
+  input$YearsSince1900 = as.numeric(input$year - 1900)
 
   input=data.frame(Id,OpenDate,City,CityGroup,Type,P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,
                    P21,P22,P23,P24,P25,P26,P27,P28,P29,P30,P31,P32,P33,P34,P35,P36,P37,YearsSince1900)
