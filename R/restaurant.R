@@ -9,14 +9,20 @@ restaurant = function(Id,OpenDate,City,P1,P2,P6,P17,P18,P20,P21,P23,P25,P28,P32,
   int_data=as.character(c("P1","P6","P17","P18","P20","P21","P23","P25","P32","P36"))
   num_data=as.character(c("P2","P28","YearsSince1900"))
 
-  for(i in int_data)
-  {
-    input[,i]=as.integer(input[,i])
-  }
-  for(i in num_data)
-  {
-    input[,i]=as.numeric(input[,i])
-  }
+  P1=as.integer(P1)
+  P6=as.integer(P6)
+  P17=as.integer(P17)
+  P18=as.integer(P18)
+  P20=as.integer(P20)
+  P21=as.integer(P21)
+  P23=as.integer(P23)
+  P25=as.integer(P25)
+  P32=as.integer(P32)
+  P36=as.integer(P36)
+
+  P2=as.numeric(P2)
+  P28=as.numeric(P28)
+  YearsSince1900=as.numeric(YearsSince1900)
 
   important_input = c(P1,P2,P6,P17,P18,P20,P21,P23,P25,P28,P32,P36,YearsSince1900)
 
