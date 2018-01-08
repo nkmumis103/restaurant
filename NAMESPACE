@@ -1,0 +1,6 @@
+#exportPattern("^[[:alpha:]]+")
+
+export(restaurant)
+#export(restaurant_fut)
+import(randomForest)
+#import(ggplot2)

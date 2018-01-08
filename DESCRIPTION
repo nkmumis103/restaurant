@@ -1,0 +1,10 @@
+Package: restaurant
+Type: Package
+Title: TFI restaurant sales predict(form Kaggle data)
+Version: 0.1.0
+Author: nkmumis103
+Maintainer: NKMUmis103 <nkmumistop103@gmail.com>
+Description:TFI restaurant sales predict(form Kaggle data),this is our Graduation topic.
+License: Use this package with our html
+Encoding: UTF-8
+LazyData: true

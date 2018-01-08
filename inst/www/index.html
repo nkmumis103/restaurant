@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">	
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>TFI銷售預測系統</title>
+	
+	<link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="tooltipster/dist/css/tooltipster.bundle.min.css" />
+	<link rel="stylesheet" href="css/mystyle.css">
+</head>
+<body>
+	<div class="container">
+		<!-- <nav class="navbar " id="topNav">
+		</nav> -->
+		<div class="logo">
+			<img src="img/logo.png"/>
+		</div>
+		<div class="plotdiv">
+			<div class="col-sm-12 plottitle">
+				歷史銷售統計圖表
+			</div>
+			<div class="historyPlot">
+				<a href="plot.html" target="_blank"><img src="img/Rplot.png"/></a>
+				<h4>點擊圖片進入歷年動態圖表↑</h4>
+			</div>
+		</div>
+		<div class="inputdiv">
+			<div class="col-sm-12 predtitle">
+				銷售預測
+			</div>
+			<form>
+			<div class="col-sm-4">
+				1.店家ID
+				<input class="form-control" type="number" id="Id" min="1" required="required">
+				<!-- 2.選擇星期
+				<select class="form-control" id="DayOfWeek">
+					<option selected disabled>請選擇</option>
+					<option value="1">一</option>
+					<option value="2">二</option>
+					<option value="3">三</option>
+					<option value="4">四</option>
+					<option value="5">五</option>
+					<option value="6">六</option>
+					<option value="7">七</option>
+				</select> -->
+				2.開店日期
+				<input class="form-control" type="date" id="OpenDate" required="required">
+				3.城市
+				<select class="form-control" id="City" required="required">
+					<option selected disabled>請選擇</option>
+					<option value="İstanbul">İstanbul</option>
+					<option value="İzmir">İzmir</option>
+					<option value="Şanlıurfa">Şanlıurfa</option>
+					<option value="Adana">Adana</option>
+					<option value="Afyonkarahisar">Afyonkarahisar</option>
+					<option value="Aksaray">Aksaray</option>
+					<option value="Antalya">Antalya</option>
+					<option value="Artvin">Artvin</option>
+					<option value="Aydın">Aydın</option>
+					<option value="Balıkesir">Balıkesir</option>
+					<option value="Batman">Batman</option>
+					<option value="Bilecik">Bilecik</option>
+					<option value="Bursa">Bursa</option>
+					<option value="Çanakkale">Çanakkale</option>
+					<option value="Çankırı">Çankırı</option>
+					<option value="Çorum">Çorum</option>
+					<option value="Denizli">Denizli</option>
+					<option value="Diyarbakır">Diyarbakır</option>
+					<option value="Düzce">Düzce</option>
+					<option value="Edirne">Edirne</option>
+					<option value="Erzincan">Erzincan</option>
+					<option value="Erzurum">Erzurum</option>
+					<option value="Eskişehir">Eskişehir</option>
+					<option value="Gaziantep">Gaziantep</option>
+					<option value="Giresun">Giresun</option>
+					<option value="Isparta">Isparta</option>
+					<option value="Kırıkkale">Kırıkkale</option>
+					<option value="Kırşehir">Kırşehir</option>
+					<option value="Kırklareli">Kırklareli</option>
+					<option value="Kahramanmaraş">Kahramanmaraş</option>
+					<option value="Kars">Kars</option>
+					<option value="Kocaeli">Kocaeli</option>
+					<option value="Konya">Konya</option>
+					<option value="Kütahya">Kütahya</option>
+					<option value="Malatya">Malatya</option>
+					<option value="Manisa">Manisa</option>
+					<option value="Mardin">Mardin</option>
+					<option value="Muğla">Muğla</option>
+					<option value="Nevşehir">Nevşehir</option>
+					<option value="Niğde">Niğde</option>
+					<option value="Ordu">Ordu</option>
+					<option value="Rize">Rize</option>
+					<option value="Sakarya">Sakarya</option>
+					<option value="Siirt">Siirt</option>
+					<option value="Sivas">Sivas</option>
+					<option value="Tanımsız">Tanımsız</option>
+					<option value="Tekirdağ">Tekirdağ</option>
+					<option value="Trabzon">Trabzon</option>
+					<option value="Uşak">Uşak</option>
+					<option value="Zonguldak">Zonguldak</option>
+				</select>
+				<!-- 城市分類  CityGroup => 自己判斷 -->
+				<!--P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,P11,P12,P13,P14,P15,P16,P17,P18,P19,P20,P21,P22,P23,P24,P25,P26,P27,P28,P29,P30,P31,P32,P33,P34,P35,P36,P37  -->
+				4.類型
+				<select class="form-control" id="Type" required="required">
+					<option selected disabled>請選擇</option>
+					<option value="DT">DT</option>
+					<option value="FC">FC</option>
+					<option value="IL">IL</option>
+					<option value="MB">MB</option>
+				</select>
+				5.P1
+				<input class="form-control" type="number" id="P1" step='0.1' min="0.0" required="required">
+				<!--<select class="form-control" id="P1" required="required">
+					<option selected disabled>請選擇</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="9">9</option>
+					<option value="12">12</option>
+					<option value="15">15</option>
+				</select>-->
+				6.P2
+				<input class="form-control" type="number" id="P2" step='0.1' min="0.0" required="required">
+				<!--<select class="form-control" id="P2" required="required">
+					<option selected disabled>請選擇</option>
+					<option value="1">a</option>
+					<option value="1.5">1.5</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="4.5">4.5</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7.5">7.5</option>
+				</select>-->
+				7.P3
+				<input class="form-control" type="number" id="P3" step='0.1' min="0.0" required="required">
+				<!--<select class="form-control" id="P3" required="required">
+					<option selected disabled>請選擇</option>
+					<option value="0">0</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="4.5">4.5</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+				</select>-->
+				8.P4
+				<input class="form-control" type="number" id="P4" step='0.1' min="0.0" required="required">
+				<!--<select class="form-control" id="P4" required="required">
+					<option selected disabled>請選擇</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="4.5">4.5</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7.5">7.5</option>
+				</select>-->
+				9.P5
+				<input class="form-control" type="number" id="P5" step='0.1' min="0.0" required="required">
+				
+				10.P6
+				<input class="form-control" type="number" id="P6" step='0.1' min="0.0" required="required">
+				
+				11.P7
+				<input class="form-control" type="number" id="P7" step='0.1' min="0.0" required="required">
+				
+				12.P8
+				<input class="form-control" type="number" id="P8" step='0.1' min="0.0" required="required">
+				<!--
+				9.競爭對手開店年份(西元)
+				<input class="form-control" type="number" id="CompetitionOpenSinceYear" min="1911" required="required">
+				10.競爭對手開店月份
+				<input class="form-control" type="number" id="CompetitionOpenSinceMonth" min="1" max="12" required="required">
+				11.是否持續促銷
+				<select class="form-control" id="Promo2" required="required">
+					<option selected disabled>請選擇</option>
+					<option value="1">是</option>
+					<option value="0">否</option>
+				</select>
+				 13.持續促銷開始年份
+				<input class="form-control" type="number" id="Promo2SinceYear" min="1911">
+				14.持續促銷開始周
+				<input class="form-control" type="number" id="Promo2SinceWeek" min="1">
+				15.持續促銷每次間隔的開始月份
+				<input class="form-control" type="number" id="PromoInterval" min="1" max="12"> -->
+				13.P9
+				<input class="form-control" type="number" id="P9" step='0.1' min="0.0" required="required">
+				14.P10
+				<input class="form-control" type="number" id="P10" step='0.1' min="0.0" required="required">
+			</div>
+			<div class="col-sm-4">
+				15.P11
+				<input class="form-control" type="number" id="P11" step='0.1' min="0.0" required="required">
+				16.P12
+				<input class="form-control" type="number" id="P12" step='0.1' min="0.0" required="required">
+				17.P13
+				<input class="form-control" type="number" id="P13" step='0.1' min="0.0" required="required">
+				18.P14
+				<input class="form-control" type="number" id="P14" step='0.1' min="0.0" required="required">
+				19.P15
+				<input class="form-control" type="number" id="P15" step='0.1' min="0.0" required="required">
+				20.P16
+				<input class="form-control" type="number" id="P16" step='0.1' min="0.0" required="required">
+				21.P17
+				<input class="form-control" type="number" id="P17" step='0.1' min="0.0" required="required">
+				22.P18
+				<input class="form-control" type="number" id="P18" step='0.1' min="0.0" required="required">
+				23.P19
+				<input class="form-control" type="number" id="P19" step='0.1' min="0.0" required="required">
+				24.P20
+				<input class="form-control" type="number" id="P20" step='0.1' min="0.0" required="required">
+				25.P21
+				<input class="form-control" type="number" id="P21" step='0.1' min="0.0" required="required">
+				26.P22
+				<input class="form-control" type="number" id="P22" step='0.1' min="0.0" required="required">
+				27.P23
+				<input class="form-control" type="number" id="P23" step='0.1' min="0.0" required="required">
+				28.P24
+				<input class="form-control" type="number" id="P24" step='0.1' min="0.0" required="required">
+			</div>	
+			<div class="col-sm-4">
+				29.P25
+				<input class="form-control" type="number" id="P25" step='0.1' min="0.0" required="required">
+				30.P26
+				<input class="form-control" type="number" id="P26" step='0.1' min="0.0" required="required">
+				31.P27
+				<input class="form-control" type="number" id="P27" step='0.1' min="0.0" required="required">
+				32.P28
+				<input class="form-control" type="number" id="P28" step='0.1' min="0.0" required="required">
+				33.P29
+				<input class="form-control" type="number" id="P29" step='0.1' min="0.0" required="required">
+				34.P30
+				<input class="form-control" type="number" id="P30" step='0.1' min="0.0" required="required">
+				35.P31
+				<input class="form-control" type="number" id="P31" step='0.1' min="0.0" required="required">
+				36.P32
+				<input class="form-control" type="number" id="P32" step='0.1' min="0.0" required="required">
+				37.P33
+				<input class="form-control" type="number" id="P33" step='0.1' min="0.0" required="required">
+				38.P34
+				<input class="form-control" type="number" id="P34" step='0.1' min="0.0" required="required">
+				39.P35
+				<input class="form-control" type="number" id="P35" step='0.1' min="0.0" required="required">
+				40.P36
+				<input class="form-control" type="number" id="P36" step='0.1' min="0.0" required="required">
+				41.P37
+				<input class="form-control" type="number" id="P37" step='0.1' min="0.0" required="required">
+			</div>
+			<div class="col-sm-12 submitdiv">
+				<button type="submit" class="btn btn-primary" id="submit">當日預測</button>
+				<!--
+				改成分析客戶
+				<button type="submit" class="btn btn-primary" id="submit_fut">未來七天預測</button>-->
+			</div>
+			</form>
+			<div class="col-sm-12 preddiv">
+				<label class="pred" id="output_sale" style="display:none;">
+					
+				</label>
+				<!--<label class="pred" id="output_plot" style="display:none;">
+					
+				</label>-->
+			</div>
+		</div>
+		
+		<div class="inputdiv">
+			<div class="col-sm-12 predtitle">
+				上傳資料
+			</div>
+			<div class="col-sm-4">
+				1.店家ID
+				<input class="form-control" type="number" id="Store_push" min="1">
+				<!-- 2.選擇星期
+				<select class="form-control" id="DayOfWeek">
+					<option selected disabled>請選擇</option>
+					<option value="1">一</option>
+					<option value="2">二</option>
+					<option value="3">三</option>
+					<option value="4">四</option>
+					<option value="5">五</option>
+					<option value="6">六</option>
+					<option value="7">七</option>
+				</select> -->
+				2.當日日期
+				<input class="form-control" type="date" id="Date_push">
+				3.當日是否促銷
+				<select class="form-control" id="Promo_push">
+					<option selected disabled>請選擇</option>
+					<option value="1">是</option>
+					<option value="0">否</option>
+				</select>
+				4.當日是否開店
+				<select class="form-control" id="Open_push">
+					<option selected disabled>請選擇</option>
+					<option value="1">是</option>
+					<option value="0">否</option>
+				</select>
+			</div>
+			<div class="col-sm-4">
+				5.是否為學校休假日
+				<select class="form-control" id="SchoolHoliday_push">
+					<option selected disabled>請選擇</option>
+					<option value="1">是</option>
+					<option value="0">否</option>
+				</select>
+				6.商店模式
+				<select class="form-control" id="StoreType_push">
+					<option selected disabled>請選擇</option>
+					<option value="1">a</option>
+					<option value="2">b</option>
+					<option value="3">c</option>
+					<option value="4">d</option>
+				</select>
+				7.分類
+				<select class="form-control" id="Assortment_push">
+					<option selected disabled>請選擇</option>
+					<option value="1">a</option>
+					<option value="2">b</option>
+					<option value="3">c</option>
+				</select>
+				8.與競爭對手店面距離(公尺)
+				<input class="form-control" type="number" id="CompetitionDistance_push" step='0.1' min="0.0" min="0.0">
+			</div>
+			<div class="col-sm-4">
+				9.競爭對手開店年份(西元)
+				<input class="form-control" type="number" id="CompetitionOpenSinceYear_push" min="1911">
+				10.競爭對手開店月份
+				<input class="form-control" type="number" id="CompetitionOpenSinceMonth_push" min="1" max="12">
+				11.是否持續促銷
+				<select class="form-control" id="Promo2_push">
+					<option selected disabled>請選擇</option>
+					<option value="1">是</option>
+					<option value="0">否</option>
+				</select>
+				12.當日銷售額
+				<input class="form-control" type="number" id="Sales">
+			</div>
+			<div class="col-sm-12 submitdiv">
+				<button type="submit" class="btn btn-primary" id="push">傳送</button>
+			</div>
+			<div class="footer">
+			@NKMUMIS專題團隊 莊晴安 劉炤妤 張煦薇 王彥甯 張簡珮伃
+			</div>
+		</div>
+	</div>
+	<div class="gotop">
+		<i class="fa fa-chevron-up" aria-hidden="true"></i>
+	</div>
+	<div class="gobottom">
+		上傳資料↓
+	</div>
+	<script src="js/jquery.min.js"></script>
+	<script src="bootstrap/bootstrap.min.js"></script>
+	<script type="text/javascript" src="tooltipster/dist/js/tooltipster.bundle.min.js"></script>
+	<script src="https://use.fontawesome.com/a2a1b3165b.js"></script>
+	<script src="js/opencpu.js"></script>
+	<script src="js/action.js"></script>
+	<script src="js/predict.js"></script>
+	<script src="js/insertData.js"></script>
+</body>
+</html>
