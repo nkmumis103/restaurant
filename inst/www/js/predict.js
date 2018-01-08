@@ -1,5 +1,5 @@
 $(document).ready(function(){
-	var Store,DayOfWeek,today,Promo,Open,SchoolHoliday,StoreType,Assortment,CompetitionDistance,CompetitionOpenSinceYear,CompetitionOpenSinceMonth,Promo2,Promo2SinceYear,Promo2SinceWeek,PromoInterval,best_Promo,best_SchoolHoliday,best_Promo2;
+	var Id,OpenDate,City,P1,P2,P6,P17,P18,P20,P21,P23,P25,P28,P32,P36;
 	/* $(".pred").css("display", "none"); */
 	$("#submit").on("click", function(){ 
 	//disable the button to prevent multiple clicks
