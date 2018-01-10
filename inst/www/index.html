@@ -38,7 +38,7 @@
 					<option selected disabled>請選擇</option>
 					<option value="İstanbul">İstanbul</option>
 					<option value="İzmir">İzmir</option>
-					<!--<option value="Şanlıurfa">Şanlıurfa</option>
+					<option value="Şanlıurfa">Şanlıurfa</option>
 					<option value="Adana">Adana</option>
 					<option value="Afyonkarahisar">Afyonkarahisar</option>
 					<option value="Aksaray">Aksaray</option>
@@ -85,36 +85,108 @@
 					<option value="Tekirdağ">Tekirdağ</option>
 					<option value="Trabzon">Trabzon</option>
 					<option value="Uşak">Uşak</option>
-					<option value="Zonguldak">Zonguldak</option>-->
+					<option value="Zonguldak">Zonguldak</option>
 				</select>
-				4.P1
-				<input class="form-control" type="number" id="P1" step='0.1' min="0.0" required="required">
-				5.P2
-				<input class="form-control" type="number" id="P2" step='0.1' min="0.0" required="required">
+				4.性別比例
+				<select class="form-control" id="P6" required="required">
+					<option selected disabled>請選擇</option>
+					<option value="1">男性</option>
+					<option value="2">女性</option>
+					<option value="3">相等</option>
+				</select>
+				5.年齡比例
+				<select class="form-control" id="P2" required="required">
+					<option selected disabled>請選擇</option>
+					<option value="2">0~17</option>
+					<option value="3">18~65</option>
+					<option value="4">66~79</option>
+					<option value="5">80~99</option>
+					<option value="6">100以上</option>
+				</select>
 			</div>
 			<div class="col-sm-4">
-				6.P6
-				<input class="form-control" type="number" id="P6" step='0.1' min="0.0" required="required">
-				7.P17
-				<input class="form-control" type="number" id="P17" step='0.1' min="0.0" required="required">
-				8.P18
-				<input class="form-control" type="number" id="P18" step='0.1' min="0.0" required="required">
-				9.P20
-				<input class="form-control" type="number" id="P20" step='0.1' min="0.0" required="required">
-				10.P21
-				<input class="form-control" type="number" id="P21" step='0.1' min="0.0" required="required">
+				6.職業比例
+				<select class="form-control" id="P1" required="required">
+					<option selected disabled>請選擇</option>
+					<option value="1">學生</option>
+					<option value="2">軍公教</option>
+					<option value="3">服務業</option>
+					<option value="4">工商業</option>
+					<option value="5">自由業</option>
+					<option value="6">家庭主婦</option>
+					<option value="15">其他</option>
+				</select>
+				7.月薪比例
+				<select class="form-control" id="P17" required="required">
+					<option selected disabled>請選擇</option>
+					<option value="0">10000以下</option>
+					<option value="1">10001~20000</option>
+					<option value="2">20001~30000</option>
+					<option value="3">30001~40000</option>
+					<option value="4">40001~50000</option>
+					<option value="5">50001以上</option>
+				</select>
+				8.教育程度比例
+				<select class="form-control" id="P18" required="required">
+					<option selected disabled>請選擇</option>
+					<option value="0">國中以下</option>
+					<option value="1">高中職</option>
+					<option value="2">大學</option>
+					<option value="3">大專</option>
+					<option value="4">研究所(含)以上</option>
+				</select>
+				9.婚姻比例
+				<select class="form-control" id="P20" required="required">
+					<option selected disabled>請選擇</option>
+					<option value="1">未婚</option>
+					<option value="2">已婚</option>
+				</select>
+				10.「如何知道本店」比例
+				<select class="form-control" id="P21" required="required">
+					<option selected disabled>請選擇</option>
+					<option value="1">親友介紹</option>
+					<option value="2">媒體報導</option>
+					<option value="3">網路資訊</option>
+					<option value="4">路過附近</option>
+					<option value="5">曾經來過</option>
+				</select>
 			</div>
 			<div class="col-sm-4">
-				11.P23
-				<input class="form-control" type="number" id="P23" step='0.1' min="0.0" required="required">
-				12.P25
-				<input class="form-control" type="number" id="P25" step='0.1' min="0.0" required="required">
-				13.P28
-				<input class="form-control" type="number" id="P28" step='0.1' min="0.0" required="required">
-				14.P32
-				<input class="form-control" type="number" id="P32" step='0.1' min="0.0" required="required">
-				15.P36
-				<input class="form-control" type="number" id="P36" step='0.1' min="0.0" required="required">
+				11.「來店次數」比例
+				<select class="form-control" id="P23" required="required">
+					<option selected disabled>請選擇</option>
+					<option value="1">1~5次</option>
+					<option value="3">6~10次</option>
+					<option value="5">10次以上</option>
+					<option value="20">未曾來過</option>
+				</select>
+				12.「用餐目的」比例0 2 3 4 10
+				<select class="form-control" id="P25" required="required">
+					<option selected disabled>請選擇</option>
+					<option value="0">單純用餐</option>
+					<option value="2">朋友/家庭聚餐</option>
+					<option value="3">生日/節日聚餐</option>
+					<option value="4">商務宴請</option>
+					<option value="10">其他目的</option>
+				</select>
+				13.是否為國定假日
+				<select class="form-control" id="P28" required="required">
+					<option selected disabled>請選擇</option>
+					<option value="0">是</option>
+					<option value="2">否</option>
+				</select>
+				14.是否為學校休假日
+				<select class="form-control" id="P32" required="required">
+					<option selected disabled>請選擇</option>
+					<option value="0">是</option>
+					<option value="4">否</option>
+				</select>
+				15.是否在學校附近
+				<select class="form-control" id="P36" required="required">
+					<option selected disabled>請選擇</option>
+					<option value="0">是</option>
+					<option value="3">否</option>
+				</select>
 			</div>
 			<div class="col-sm-12 submitdiv">
 				<button type="submit" class="btn btn-primary" id="submit">當日預測</button>
